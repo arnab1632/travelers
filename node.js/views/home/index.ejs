@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/abc/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/abc/css/home.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="/abc/js/modernizer.js"></script>
+</head>
+<body> 
+    
+<!--    header selected -->
+<% if (user.login=="true") { %>
+    <% if(user.user_type=="Admin") {%>
+        <% include ../common/adminheader.ejs %>
+        <% } else { %>
+            <% include ../common/user_header.ejs %>
+        <% } %>
+<% } else { %>
+<% include ../common/header.ejs %>
+<% } %>
+     
+    
+        <div class="container h-50">
+            <div class="d-flex justify-content-center h-100">
+                <div class="searchbar">
+                  <input class="search_input" type="text" name="search" placeholder="Search here...">
+                  <a href="" class="search_icon"><i class="fas fa-search"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="wrapper">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="travel-filter wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
+                            <ul>
+                                <li><a class="btn btn-dark active" href="" data-filter="*">All</a></li>
+                                <li><a class="btn btn-dark" data-toggle="tooltip" data-placement="top" href="" data-filter=".cat1">Blog</a></li>
+                                <li><a class="btn btn-dark" href="" data-toggle="tooltip" data-placement="top" data-filter=".cat2">Events</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div id="da-thumbs" class="row da-thumbs portfolio wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+
+
+                   
+                    <% for(var i=0 ; i < events.length; i++ ) { %>
+                    <div class="post-media pitem item-w1 item-h1 cat2">
+                        <a href="/events/event_details/<%=events[i].id%>" title="">
+                            <img src="<%=events[i].image%>" alt="" class="img-responsive">
+                            <div>
+                                <h3><%=events[i].title%> <strong><%=events[i].date%></strong><small><%=events[i].catagory%></small></h3>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <% } %>
+                    
+                    
+                    <% for(var i=0 ; i < blog.length; i++ ) { %>
+                    <div class="post-media pitem item-w1 item-h1 cat1">
+                        <a href="/blog/blog_details/<%=blog[i].id%>" title="">
+                            <img src="<%=blog[i].image%>" alt="" class="img-responsive">
+                            <div>
+                                <h3><%=blog[i].title %> <strong><%=blog[i].name %></strong><small><%=blog[i].catagory %></small></h3>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <% } %>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/abc/js/all.js"></script>
+    <script src="/abc/js/home.js"></script>
+    <script src="/abc/js/hoverdir.js"></script>  
+</body>
+</html>

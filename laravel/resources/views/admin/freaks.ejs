@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Freaks | Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="/abc/css/travel_agency.css">
+    <link rel="stylesheet" type="text/css" href="/abc/css/registration.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="app sidebar-mini">
+  
+  <% include ../admin/header.ejs %>
+
+  <% include ../admin/sidenav.ejs %>
+  
+    <main class="app-content">
+
+      <div class="app-title">
+        <div>
+          <h1>Freaks List</h1>
+        </div>
+      </div>
+
+      
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="sampleTable">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Gender</th>
+                      <th>Profile Picture</th>
+                    </tr>
+                  </thead>
+                  <% for(var i=0; i < data.length; i++){ %>
+                  <tbody>
+                
+                    <tr>
+                      <td><%= data[i].name %></td>
+                      <td><%= data[i].email%></td>
+                      <td><%= data[i].phone %></td>
+                      <td><%= data[i].gender %></td>
+                      <td><img src="<%= data[i].profile_pic %>" height="65px" width="100px"></td>
+                      <td>
+                        <a href="/admin/freaks/ban"> <button class="btn btn-lg btn-block" type="submit">Ban</button></a>
+                      </td>
+                      <td>
+                            <a href="/admin/freaks/delete"> <button class="btn btn-lg btn-block" type="submit">Delete</button></a>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </main>
+    <script src="/abc/js/jquery-3.3.1.min.js"></script>
+    <script src="/abc/js/popper.min.js"></script>
+    <script src="/abc/js/bootstrap.min.js"></script>
+    <script src="/abc/js/main.js"></script>
+  </body>
+</html>

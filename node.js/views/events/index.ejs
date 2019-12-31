@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/abc/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/abc/css/home.css">
+    <script src="/abc/js/modernizer.js"></script>
+</head>
+<body>
+
+   <!--    header selected -->
+   
+   <% if (user.login=="true") { %>
+    <% if(user.user_type=="Admin") {%>
+        <% include ../common/adminheader.ejs %>
+        <% } else { %>
+            <% include ../common/user_header.ejs %>
+        <% } %>
+<% } else { %>
+<% include ../common/header.ejs %>
+<% } %>
+     
+
+    <div id="wrapper">
+        <div class="section">
+            <div class="container">
+                <div class="row intro wow fadeIn">
+                    <div class="col-md-12 text-center my-3">
+                        <h1><strong>Events</strong></h1>
+                        <p><%=count.NI %></p>
+                    </div>
+                </div>
+
+                <div id="da-thumbs" class="row da-thumbs portfolio wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+                     
+                    <% for(var i=0 ; i < events.length; i++ ) { %>
+                 
+                    <div class="post-media pitem item-w1 item-h1">
+                        <a href="/events/event_details/<%=events[i].id%>" title="">
+                            <img src="<%=events[i].image%>" alt="" class="img-responsive">
+                            <div>
+                                <h3><%=events[i].title%> <strong><%=events[i].date%></strong> <small><%=events[i].catagory%></small> </h3>
+                            </div>
+                        </a>
+                    </div>
+                <% } %> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/abc/js/all.js"></script>
+    <script src="/abc/js/home.js"></script>
+    <script src="/abc/js/hoverdir.js"></script>  
+</body>
+</html>

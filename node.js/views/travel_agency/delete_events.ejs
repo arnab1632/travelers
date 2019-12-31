@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit Events</title>
+    <link rel="stylesheet" type="text/css" href="/abc/css/travel_agency.css">
+    <link rel="stylesheet" type="text/css" href="/abc/css/registration.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="app sidebar-mini">
+  
+  <% include ../travel_agency/header.ejs %>
+
+  <% include ../travel_agency/sidenav.ejs %>
+  
+    <main class="app-content">
+
+      <div class="app-title">
+        <div>
+          <h1>Edit Events</h1>
+        </div>
+      </div>
+
+      
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="sampleTable">
+                  <thead>
+                    <tr>
+                      <th>Tittle</th>
+                      <th>Agency name</th>
+                      <th>Place</th>
+                      <th>Date</th>
+                      <th>Duration</th>
+                      <th>Description</th>
+                      <th>Person Capacity</th>
+                      <th>Price Per Person</th>
+                      <th>Image</th>
+                    </tr>
+                  </thead>
+                  <% for(var i=0 ; i < event.length; i++ ) { %>
+                  <tbody>
+                    <tr>
+                      <td><%=event[i].title%></td>
+                      <td><%=event[i].agencyname%></td>
+                      <td><%=event[i].place%></td>
+                      <td><%=event[i].date%></td>
+                      <td><%=event[i].duration%></td>
+                      <td><%=event[i].description%></td>
+                      <td><%=event[i].person_capacity%></td>
+                      <td><%=event[i].cost_per_person%></td>
+                      <td><img src="<%=event[i].image%>" height="65px" width="100px"></td>
+                      <td>
+                        <a href="/travel_agency/delete/<%=event[i].id%>"> <button class="btn btn-lg btn-block" type="submit">Delete</button></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <% }%>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </main>
+    <script src="/abc/js/jquery-3.3.1.min.js"></script>
+    <script src="/abc/js/popper.min.js"></script>
+    <script src="/abc/js/bootstrap.min.js"></script>
+    <script src="/abc/js/main.js"></script>
+  </body>
+</html>

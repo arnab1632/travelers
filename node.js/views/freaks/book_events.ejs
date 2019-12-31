@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Book Events</title>
+    <link rel="stylesheet" href="/abc/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/abc/css/freaks.css">
+    <link rel="stylesheet" type="text/css" href="/abc/css/blog.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="app sidebar-mini">
+  
+  <% include ../freaks/header.ejs %>
+
+  <% include ../freaks/sidenav.ejs %>
+  
+    <main class="app-content">
+
+      <div class="app-title">
+        <div>
+          <h1>Book Events</h1>
+        </div>
+      </div>
+
+      
+      <div id="wrapper">
+        <div class="section">
+            <div class="container">
+                <div id="da-thumbs" class="row da-thumbs portfolio wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+
+             
+
+                    <div class="post-media pitem item-w1 item-h1 cat1">
+                        <a href="/events/event_details/<%=data.id%>" title="">
+                            <img src="/abc/images/portfolio_03.jpg" alt="" class="img-responsive">
+                            <div>
+                                <h3><%=data.title%><strong><%=data.place%></strong><small><%=data.agencyname%></small></h3>
+                            </div>
+                        </a>
+                    </div>
+
+                   
+                </div>    
+            </div>
+        </div>
+    </div>    
+      
+
+
+
+    </main>
+    <script src="/abc/js/jquery-3.3.1.min.js"></script>
+    <script src="/abc/js/popper.min.js"></script>
+    <script src="/abc/js/main.js"></script>
+    <script src="/abc/js/all.js"></script>
+    <script src="/abc/js/home.js"></script>
+    <script src="/abc/js/hoverdir.js"></script>  
+    
+    
+  </body>
+</html>
